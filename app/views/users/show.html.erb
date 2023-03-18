@@ -1,0 +1,23 @@
+<section class="show-section">
+  <h2 class="show-page-title">設定</h2>
+  <div class="show-container">
+    <ul class="side-nav">
+      <li class="side-nav-item"><%= link_to "アカウント", user_path(@user) %></li>
+      <li class="side-nav-item"><%= link_to "プロフィール", profile_user_path(@user) %></li>
+    </ul>
+    <div class="account-info">
+      <div class="account-info-header">
+        <h3>アカウント</h3>
+        <%= link_to "編集", edit_user_registration_path(@user), class: "button account-info-link" %>
+      </div>
+      <div class="account-info-item">
+        <label class="account-info-label">メールアドレス</label>
+        <p class="account-info-value"><%= @user.email %></p>
+      </div>
+      <div class="account-info-item">
+        <label class="account-info-label">パスワード</label>
+        <p class="account-info-value">＊＊＊＊＊＊＊＊</p>
+      </div>
+    </div>
+  </div>
+</section>

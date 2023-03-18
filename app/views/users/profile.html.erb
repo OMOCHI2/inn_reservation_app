@@ -1,0 +1,33 @@
+<section class="show-section">
+  <h2 class="show-page-title">設定</h2>
+  <div class="show-container">
+    <ul class="side-nav">
+      <li class="side-nav-item"><%= link_to "アカウント", user_path(@user) %></li>
+      <li class="side-nav-item"><%= link_to "プロフィール", profile_user_path(@user) %></li>
+    </ul>
+    <div class="account-info">
+      <div class="account-info-header">
+        <h3>プロフィール</h3>
+        <%= link_to "編集", edit_user_path(@user), class: "button account-info-link" %>
+      </div>
+      <div class="account-info-item">
+        <label class="account-info-label">アイコン画像</label>
+        <p class="account-info-value">
+          <% if @user.avatar.present? %>
+            <%= image_tag @user.avatar.variant(resize: '80x80') %>
+          <% else %>
+            <%= image_tag "default.png", size: "80x80" %>
+          <% end %>
+        </p>
+      </div>
+      <div class="account-info-item">
+        <label class="account-info-label">名前</label>
+        <p class="account-info-value"><%= @user.name %></p>
+      </div>
+      <div class="account-info-item">
+        <label class="account-info-label">自己紹介</label>
+        <p class="account-info-value"><%= @user.introduction %></p>
+      </div>
+    </div>
+  </div>
+</section>

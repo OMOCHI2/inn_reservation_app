@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f6f6;
+  color: #333;
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}
+
+body, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul, li {
+  padding: 0;
+  list-style: none;
+}
+
+#error_explanation ul {
+  background-color: #ffcca8;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.header-bar {
+  width: 100%;
+  max-width: 1440px;
+  background-color: #1c1d3b;
+  height: 80px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding-top: 40px;
+  margin: 0 30px;
+}
+
+.header-title, .footer-title{
+  font-size: 24px;
+  color: #fff;
+}
+
+.header-profile {
+  display: flex;
+  align-items: center;
+}
+
+.header-profile span {
+  color: #fff;
+  padding-left: 10px;
+}
+
+.button {
+  background-color: #1c1d3b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  height: 45px;
+  padding: 12px 24px;
+  border-radius: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.new-button {
+  background-color: #d0621f;
+  margin-left: 30px;
+}
+
+.notice-area {
+  width: 100%;
+  height: 50px;
+  background-color: #ffcca8;
+}
+
+.notice {
+  font-size: 18px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+}
+
+.footer-bar {
+  width: 100%;
+  max-width: 1440px;
+  height: 160px;
+  background-color: #1c1d3b;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80px;
+  padding-top: 50px;
+}
+
+.footer-container p {
+  color: #fff;
+  font-size: 12px;
+}
+
+.show-section {
+  max-width: 1440px;
+  padding-top: 50px;
+  padding-bottom: 150px;
+  margin: 0 30px;
+}
+
+.show-container {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.side-nav {
+  border: 1px solid #9d9d9d;
+  width: 300px;
+  height: fit-content;
+}
+
+.side-nav-item {
+  padding: 20px 24px;
+}
+
+.side-nav-item:first-child {
+  border-bottom: 1px solid #9d9d9d;
+}
+
+.account-info {
+  width: 85%;
+  border-bottom: 1px solid #9d9d9d;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.account-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #9d9d9d;
+  margin-bottom: 25px;
+}
+
+.account-info-header h3 {
+  font-size: 24px;
+}
+
+.account-info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.account-info-label {
+  font-weight: bold;
+  width: 25%;
+}
+
+.account-info-value {
+  font-size: 14px;
+  width: 75%;
+}
+
+.string-input {
+  height: 45px;
+  border: 1px solid #9d9d9d;
+  border-radius: 6px;
+}
+
+.introduction-input {
+  height: 150px;
+  border: 1px solid #9d9d9d;
+  border-radius: 6px;
+}
+
+.button-area {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+}
+
+.cancel-button {
+  margin-right: 20px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #9d9d9d;
+}
+
+.submit-button {
+  cursor: pointer;
+}
+
+.form-wrapper {
+  background-color: #bdbdbd;
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.form-container {
+  background-color: #fff;
+  width: 800px;
+  padding: 40px 20px;
+  margin: auto;
+}
+
+.form-container-title {
+  text-align: center;
+}
+
+.different-button {
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #bdbdbd;
+  margin-right: 30px;
+}
