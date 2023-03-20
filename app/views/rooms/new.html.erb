@@ -1,0 +1,39 @@
+<div class="form-wrapper">
+  <div class="form-container">
+    <h2 class="form-container-title">新規登録</h2>
+    <%= form_with model: @room do |f| %>
+
+      <div class="account-info-item">
+        <%= f.label :name, class: "account-info-label" %>
+        <%= f.text_field :name, placeholder: "ルーム名", class: "account-info-value string-input" %>
+      </div>
+
+      <div class="account-info-item">
+        <%= f.label :introduction, class: "account-info-label" %>
+        <%= f.text_area :introduction, placeholder: "施設詳細", class: "account-info-value introduction-input" %>
+      </div>
+
+      <div class="account-info-item">
+        <%= f.label :price, class: "account-info-label" %>
+        <%= f.number_field :price, placeholder: "１日あたりの料金", class: "account-info-value string-input" %>
+      </div>
+
+      <div class="account-info-item">
+        <%= f.label :address, class: "account-info-label" %>
+        <%= f.text_field :address, placeholder: "施設の住所", class: "account-info-value string-input" %>
+      </div>
+
+      <div class="account-info-item">
+        <label class="account-info-label">施設画像</label>
+        <%= f.file_field :avatar, class: "account-info-value file-input" %>
+      </div>
+
+      <%= f.hidden_field :user_id, value: @user.id %>
+
+      <div class="button-area">
+        <%= link_to "キャンセル", :back, class: "button different-button" %></li>
+        <%= f.submit "保存", class: "button submit-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

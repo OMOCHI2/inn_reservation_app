@@ -10,7 +10,7 @@
         <h3>プロフィール</h3>
         <%= link_to "編集", edit_user_path(@user), class: "button account-info-link" %>
       </div>
-      
+
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 

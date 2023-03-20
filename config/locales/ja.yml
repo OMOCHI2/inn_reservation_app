@@ -11,6 +11,17 @@ ja:
       user:
         name: 名前
         email: メールアドレス
+        introduction: 自己紹介
         password: パスワード
         password_confirmation: 確認用パスワード
-        
+
+    models:
+      room: ルーム
+    attributes:
+      room:
+        name: 施設名
+        user_id:
+        introduction: 施設詳細
+        price: 料金
+        address: 住所
+

@@ -7,6 +7,8 @@
   <%= image_tag current_user.avatar.variant(resize: '200x200') if current_user.avatar.present? %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
   <%= link_to "アカウント", user_path(current_user) %>
+  <%= link_to "施設登録", new_room_path %>
+  <%= link_to "登録済み一覧", own_room_path(current_user) %>
   <!-- ログアウトをする -->
 <% else %>
   <!-- ユーザーがログインしていなかった時の処理 -->

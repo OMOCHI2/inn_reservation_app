@@ -1,0 +1,42 @@
+<div class="room-container">
+  <div class="room-header">
+    <%= link_to "← 戻る", :back %>
+  </div>
+
+  <div class="room-details">
+    <% if @room.avatar.present? %>
+      <%= image_tag @room.avatar, class: "room-details-image" %>
+    <% else %>
+      <%= image_tag "room_default.png",class: "room-details-image" %>
+    <% end %>
+
+    <div class="room-details-body">
+      <div class="room-details-title">
+        <p class="room-details-name"><%= @room.name %></p>
+        <p class="room-details-price"><%= @room.price.to_s(:currency) %>~</p>
+      </div>
+      <p class="room-details-address"><%= @room.address %></p>
+      <p class="room-details-introduction"><%= @room.introduction %></p>
+      <%= form_with url: edit_reservation_path do |f| %>
+        <div class="reservation-form">
+          <div class="reservation-form-item">
+            <%= f.label :start_date, "チェックイン" %>
+            <%= f.date_field :start_date %>
+          </div>
+
+          <div class="reservation-form-item">
+            <%= f.label :end_date, "チェックアウト" %>
+            <%= f.date_field :end_date %>
+          </div>
+
+          <div class="reservation-form-item">
+            <%= f.label :num_of_people, "人数" %>
+            <%= f.number_field :num_of_people %>
+          </div>
+        </div>
+        <%= f.submit "予約する", class: "button submit-button reservation-submit-button" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
