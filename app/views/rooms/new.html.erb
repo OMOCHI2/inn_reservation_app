@@ -2,6 +2,7 @@
   <div class="form-container">
     <h2 class="form-container-title">新規登録</h2>
     <%= form_with model: @room do |f| %>
+      <%= render "shared/error_messages_room" %>
 
       <div class="account-info-item">
         <%= f.label :name, class: "account-info-label" %>

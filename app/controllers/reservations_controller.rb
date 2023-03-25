@@ -1,16 +1,25 @@
 class ReservationsController < ApplicationController
-  before_action :set_user
+  before_action :authenticate_user!, only: [:index, :confirm, :create, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :confirm, :create, :edit, :update, :destroy]
 
   def index
     @reservations = @user.reservations
   end
 
   def confirm
-    @reservation = Reservation.find_or_initialize_by(id: params[:id])
-    @reservation.assign_attributes(reservation_params)
-    if @reservation.invalid?
-      @room = Room.find(@reservation.room_id)
-      render "rooms/show"
+    if request.post?
+      @reservation =  Reservation.new
+      @reservation.assign_attributes(reservation_params)
+      if @reservation.invalid?
+        @room = Room.find(@reservation.room_id)
+        render "rooms/show"
+      end
+    elsif request.patch?
+      @reservation = Reservation.find(params[:id])
+      @reservation.assign_attributes(reservation_params)
+      if @reservation.invalid?
+        render "edit"
+      end
     end
   end
 
@@ -40,10 +49,6 @@ class ReservationsController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find(current_user.id)
-    end
-
     def reservation_params
       params.require(:reservation).permit(:user_id, :room_id, :start_date, :end_date, :num_of_people)
     end

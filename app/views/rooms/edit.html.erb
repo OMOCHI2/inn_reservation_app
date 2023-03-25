@@ -1,7 +1,8 @@
 <div class="form-wrapper">
   <div class="form-container">
     <h2 class="form-container-title">施設情報の編集</h2>
-    <%= form_with model: @room do |f| %>
+    <%= form_with model: @room, local: true do |f| %>
+      <%= render "shared/error_messages_room" %>
 
       <div class="account-info-item">
         <%= f.label :name, class: "account-info-label" %>
@@ -31,7 +32,7 @@
       <%= f.hidden_field :user_id, value: @user.id %>
 
       <div class="button-area">
-        <%= link_to "キャンセル", :back, class: "button different-button" %></li>
+        <%= link_to "キャンセル", own_rooms_path, class: "button different-button" %></li>
         <%= f.submit "保存", class: "button submit-button" %>
       </div>
     <% end %>

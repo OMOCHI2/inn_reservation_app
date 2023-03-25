@@ -1,6 +1,7 @@
 <div class="form-wrapper">
   <section class="form-container">
     <h2>再予約する</h2>
+    <%= render "shared/error_messages_reservation" %>
     <div class="reservation-details">
       <% if @reservation.room.avatar.present? %>
         <%= image_tag @reservation.room.avatar, class: "reservation-details-image", alt: "施設画像" %>
@@ -16,6 +17,8 @@
     </div>
 
     <%= form_with model: @reservation, url: confirm_reservation_path(@reservation) do |f| %>
+      <%= render "shared/error_messages_reservation" %>
+
       <div class="reservation-form">
         <div class="reservation-form-item-edit">
           <%= f.label :start_date, "チェックイン" %>
@@ -35,6 +38,6 @@
         <%= f.submit "再予約する", class: "button submit-button reservation-submit-button" %>
       </div>
     <% end %>
-    <%= link_to "キャンセル", :back, class: "button reservation-cancel-button" %>
+    <%= link_to "キャンセル", reservations_path, class: "button reservation-cancel-button" %>
   </section>
 </div>

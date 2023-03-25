@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
-  before_action :set_user
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :own]
+  before_action :login_check, only: [:show]
+  before_action :set_user, only: [:new, :create, :show, :edit, :update, :destroy, :own]
 
   def index
     @rooms = Room.where("address like ? and name like ?", "%#{params[:area]}%", "%#{params[:keyword]}%")
@@ -21,11 +23,17 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def edit
     @room = Room.find(params[:id])
-    @reservation = Reservation.new
+    if @user.id == @room.user_id
+      @reservation = Reservation.new
+    else
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+    end
   end
 
   def update
@@ -34,7 +42,7 @@ class RoomsController < ApplicationController
       flash[:notice] = "編集が正常に完了しました"
       redirect_to own_room_path(@user)
     else
-      render edit_room_path(@room)
+      render "edit"
     end
   end
 
@@ -50,11 +58,14 @@ class RoomsController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find(current_user.id)
-    end
-
     def room_params
       params.require(:room).permit(:name, :user_id, :introduction, :price, :address, :avatar)
+    end
+
+    def login_check
+      if current_user.nil?
+        flash[:notice] = "以降の閲覧にはログインが必要です"
+        redirect_to new_user_session_path
+      end
     end
 end

@@ -10,7 +10,9 @@
         <h3>プロフィール</h3>
         <%= link_to "編集", edit_user_path(@user), class: "button account-info-link" %>
       </div>
-      <%= form_with model: @user do |f| %>
+      <%= form_with model: @user, local: true do |f| %>
+        <%= render "shared/error_messages" %>
+
         <div class="account-info-item">
           <label class="account-info-label">アイコン画像</label>
           <%= f.file_field :avatar, class: "account-info-value file-input" %>

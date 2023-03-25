@@ -13,6 +13,8 @@
     <% end %>
 
     <div class="room-details-body">
+      <%= render "shared/error_messages_reservation" %>
+
       <div class="room-details-title">
         <p class="room-details-name"><%= @room.name %></p>
         <p class="room-details-price"><%= @room.price.to_s(:currency) %>~</p>

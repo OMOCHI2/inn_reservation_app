@@ -35,6 +35,11 @@ tbody, td, tfoot, th, thead, tr {
 
 #error_explanation ul {
   background-color: #ffcca8;
+  padding: 8px;
+}
+
+.error-list-item {
+  padding: 8px;
 }
 
 .field_with_errors {
