@@ -1,2 +1,42 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<section class="container own-container">
+  <h2>登録済み一覧</h2>
+  <div class="table-wrapper">
+    <table class="table own-table">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th>施設名</th>
+          <th>紹介文</th>
+          <th>合計料金</th>
+          <th>チェックイン</th>
+          <th>チェックアウト</th>
+          <th>予約確定日時</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @reservations.each do |r| %>
+          <tr>
+            <td>
+              <% if r.room.avatar.present? %>
+                <%= image_tag r.room.avatar.variant(resize: '120x90'), alt: "施設画像" %>
+              <% else %>
+                <%= image_tag "room_default.png", size: "120x90", alt: "施設画像" %>
+              <% end %>
+            </td>
+            <td><%= link_to r.room.name, room_path(r.room) %></td>
+            <td><%= r.room.introduction %></td>
+            <td class="nowrap"><%= r.room.price * r.num_of_people * (r.end_date - r.start_date).to_i %>円</td>
+            <td class="nowrap"><%= l r.start_date %></td>
+            <td class="nowrap"><%= l r.end_date %></td>
+            <td><%= l r.created_at, format: :long %></td>
+            <td class="nowrap"><%= link_to "再予約", edit_reservation_path(r) %></td>
+            <td class="nowrap"><%= link_to "削除", reservation_path(r), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

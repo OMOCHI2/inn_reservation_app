@@ -1,19 +1,37 @@
-<h1>ログインアプリ</h1>
-
-<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-  <!-- ユーザーがログインしていた時の処理 -->
-
-  <h4> メールアドレス： <%= current_user.email %> </h4>
-  <%= image_tag current_user.avatar.variant(resize: '200x200') if current_user.avatar.present? %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "アカウント", user_path(current_user) %>
-  <%= link_to "施設登録", new_room_path %>
-  <%= link_to "登録済み一覧", own_room_path(current_user) %>
-  <!-- ログアウトをする -->
-<% else %>
-  <!-- ユーザーがログインしていなかった時の処理 -->
-  <h2> 現在ログインしていません </h2>
-  <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
-  <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-   <!-- 新規登録画面に移行する -->
-<% end %>
+<div class="first-view">
+  <section class="container">
+    <h2 class="first-view-title">
+      まだ体験したことのない<br>
+      旅をしよう。
+    </h2>
+    <div class="top-search">
+      <%= form_with url: rooms_path, method: :get do |f|%>
+        <%= f.text_field :area, placeholder: "エリア名を入力", class: "top-search-input" %>
+        <%= f.submit "検索", class: "button submit-button top-search-button" %>
+      <% end %>
+    </div>
+  </section>
+</div>
+<div class="container">
+  <section class="recommend-area-section">
+    <h2 class="recommend-area-section-title">おすすめのエリア</h2>
+    <div class="recommend-areas">
+      <%= link_to rooms_path(area: "東京"), class: "recommend-area tokyo-area" do %>
+        <span class="area-name-ja">東京</span>
+        <span class="area-name-en">Tokyo</span>
+      <% end %>
+      <%= link_to rooms_path(area: "大阪"), class: "recommend-area osaka-area" do %>
+        <span class="area-name-ja">大阪</span>
+        <span class="area-name-en">Osaka</span>
+      <% end %>
+      <%= link_to rooms_path(area: "京都"), class: "recommend-area kyoto-area" do %>
+        <span class="area-name-ja">京都</span>
+        <span class="area-name-en">Kyoto</span>
+      <% end %>
+      <%= link_to rooms_path(area: "札幌"), class: "recommend-area sapporo-area" do %>
+        <span class="area-name-ja">札幌</span>
+        <span class="area-name-en">Sapporo</span>
+      <% end %>
+    </div>
+  </section>
+</div>

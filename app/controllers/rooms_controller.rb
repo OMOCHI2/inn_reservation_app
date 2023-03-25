@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   before_action :set_user
 
   def index
-    @rooms = Room.all
+    @rooms = Room.where("address like ? and name like ?", "%#{params[:area]}%", "%#{params[:keyword]}%")
   end
 
   def new
@@ -25,6 +25,7 @@ class RoomsController < ApplicationController
 
   def edit
     @room = Room.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def update
@@ -41,12 +42,11 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.destroy
     flash[:notice] = "削除が正常に完了しました"
-    redirect_to own_room_path(@user)
+    redirect_to own_rooms_path
   end
 
   def own
     @rooms = @user.rooms
-    
   end
 
   private

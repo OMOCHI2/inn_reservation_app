@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'reservations/index'
   root to: "home#top"
 
   devise_for :users, controllers: {
@@ -15,9 +14,19 @@ Rails.application.routes.draw do
   end
 
   resources :rooms do
-    member do
-        get :own
+    collection do
+      get :own
     end
   end
+
+  resources :reservations, only: [:index, :create, :edit, :update, :destroy] do
+    collection do
+      post :confirm
+    end
+    member do
+      patch :confirm
+    end
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

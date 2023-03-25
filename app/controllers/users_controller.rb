@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :profile, :edit, :update]
   before_action :authenticate_user!, only: [:show, :profile, :edit, :update]
 
   def show
-
+    @user = User.find(params[:id])
   end
 
   def profile
-
+    @user = User.find(params[:id])
   end
 
   def edit
+    @user = User.find(params[:id])
     if @user != current_user
       flash[:notice] = "無効な操作です"
       redirect_to root_path
@@ -18,20 +18,17 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     if current_user.update(user_params)
       flash[:notice] = "編集が正常に完了しました"
-      redirect_to user_path(current_user)
+      redirect_to user_path(@user)
     else
-      redirect_to edit_user_path(current_user)
+      render "edit"
     end
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
-
     def user_params
-      params.fetch(:user, {}).permit(:name, :email, :password, :password_confirmation, :introduction, :avatar)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :introduction, :avatar)
     end
 end
