@@ -1,0 +1,675 @@
+/* 共通CSS */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f6f6;
+  color: #333;
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}
+
+body, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul, li {
+  padding: 0;
+  list-style: none;
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-style: solid;
+  border-width: 0;
+}
+
+#error_explanation ul {
+  background-color: #ffcca8;
+  padding: 8px;
+}
+
+.error-list-item {
+  padding: 8px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.button {
+  background-color: #1c1d3b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  height: 45px;
+  padding: 12px 24px;
+  border-radius: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Top page */
+.first-view {
+  background-image: url("cover.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 850px;
+  padding-top: 100px;
+  margin-bottom: 180px;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0 32px;
+}
+
+.first-view-title {
+  color: #fff;
+  font-family: Lato, sans-serif;
+  text-align: center;
+  font-size: 84px;
+  font-weight: 400;
+  line-height: 101px;
+  margin-bottom: 50px;
+}
+
+.top-search {
+  background-color: rgba($color: #eeeeee, $alpha: 0.4);
+  margin: auto;
+  padding: 32px;
+  width: 700px;
+}
+
+.top-search-input {
+  width: 100%;
+  height: 60px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.top-search-button {
+  width: 100%;
+  height: 60px;
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: #ff7757;
+  text-align: center;
+}
+
+.recommend-area-section {
+  margin-bottom: 260px;
+}
+
+.recommend-area-section-title {
+  font-size: 44px;
+  line-height: 66px;
+  margin-bottom: 160px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #ff7757;
+  width: fit-content;
+}
+
+.recommend-areas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.recommend-area {
+  background-size: cover;
+  background-position: 50%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 25px;
+  width: calc(25% - 24px);
+  height: 455px;
+}
+
+.tokyo-area {
+  background-image: url("tokyo.jpg");
+}
+
+.osaka-area {
+  background-image: url("osaka.jpg");
+}
+
+.kyoto-area {
+  background-image: url("kyoto.jpg");
+}
+
+.sapporo-area {
+  background-image: url("sapporo.jpg");
+}
+
+.area-name-ja {
+  color: #fff;
+  font-size: 28px;
+}
+
+.area-name-en {
+  color: #fff;
+  font-size: 24px;
+}
+
+.header-bar {
+  width: 100%;
+  max-width: 1440px;
+  background-color: #1c1d3b;
+  height: 80px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding-top: 40px;
+  margin: 0 30px;
+}
+
+.header-title, .footer-title{
+  font-size: 24px;
+  color: #fff;
+}
+
+.header-profile {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.header-profile span {
+  color: #fff;
+  padding-left: 10px;
+}
+
+.dropdown-lists {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  width: 90%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .3);
+  border-radius: 10px;
+  top: 40px;
+  left: 5px;
+}
+
+.show {
+  display: block;
+}
+
+.dropdown-list {
+  font-size: 14px;
+  margin: 10px;
+}
+
+.list-border {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.new-button {
+  background-color: #d0621f;
+  margin-left: 30px;
+}
+
+.notice-area {
+  width: 100%;
+  height: 50px;
+  background-color: #ffcca8;
+}
+
+.notice {
+  font-size: 18px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+}
+
+.footer-bar {
+  width: 100%;
+  max-width: 1440px;
+  height: 160px;
+  background-color: #1c1d3b;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80px;
+  padding-top: 50px;
+}
+
+.footer-container p {
+  color: #fff;
+  font-size: 12px;
+}
+
+/* User area */
+.show-section {
+  max-width: 1440px;
+  padding-top: 50px;
+  padding-bottom: 150px;
+  margin: 0 30px;
+}
+
+.show-container {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.side-nav {
+  border: 1px solid #9d9d9d;
+  width: 300px;
+  height: fit-content;
+}
+
+.side-nav-item {
+  padding: 20px 24px;
+}
+
+.side-nav-item:first-child {
+  border-bottom: 1px solid #9d9d9d;
+}
+
+.account-info {
+  width: 85%;
+  border-bottom: 1px solid #9d9d9d;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.account-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #9d9d9d;
+  margin-bottom: 25px;
+}
+
+.account-info-header h3 {
+  font-size: 24px;
+}
+
+.account-info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.account-info-label {
+  font-weight: bold;
+  width: 25%;
+}
+
+.account-info-value {
+  font-size: 14px;
+  width: 75%;
+}
+
+.string-input {
+  height: 45px;
+  border: 1px solid #9d9d9d;
+  border-radius: 6px;
+}
+
+.introduction-input {
+  height: 150px;
+  border: 1px solid #9d9d9d;
+  border-radius: 6px;
+}
+
+.button-area {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+}
+
+.cancel-button {
+  margin-right: 20px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #9d9d9d;
+}
+
+.submit-button {
+  cursor: pointer;
+}
+
+.form-wrapper {
+  background-color: #bdbdbd;
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.form-container {
+  background-color: #fff;
+  width: 800px;
+  padding: 40px 20px;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.form-container-title {
+  text-align: center;
+}
+
+.different-button {
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #bdbdbd;
+  margin-right: 30px;
+}
+
+/* ----- room area ----- */
+.search-room-container {
+  background-color: #e4e4e4;
+  height: 125px;
+  display: flex;
+}
+
+.search-room-form {
+  display: flex;
+  margin: auto;
+  gap: 16px;
+  width: fit-content;
+}
+
+.header-search-input {
+  width: 285px;
+  height: 45px;
+  padding-left: 10px;
+}
+
+.room-container {
+  margin-bottom: 250px;
+  padding-top: 40px;
+}
+
+.room-result {
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+.room-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.room {
+  background-color: #fff8f1;
+  border-radius: 25px;
+  width: calc(33.33333% - 21.33333px);
+}
+
+.room-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 25px 25px 0 0;
+}
+
+.room-body {
+  padding: 40px 24px;
+}
+
+.room-name {
+  color: #767e86;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 10px;
+}
+
+.room-address {
+  color: #767e86;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 20px;
+}
+
+.room-introduction {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.room-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.room-price {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.room-link-button {
+  background-color: #ff7757;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.room-header {
+  margin-bottom: 24px;
+}
+
+.room-header a {
+  color: #0071c1;
+  font-size: 18px;
+  width: fit-content;
+}
+
+.room-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.room-details-image {
+  width: 35%;
+}
+
+.room-details-body {
+  width: 65%;
+  background-color: #fff8f1;
+  padding: 40px 24px;
+}
+
+.room-details-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.room-details-name {
+  color: #767e86;
+  font-size: 28px;
+}
+
+.room-details-price {
+  color: #ff7757;
+  font-size: 25px;
+}
+
+.room-details-address {
+  color: #767e86;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.room-details-introduction {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.form-input-container {
+  background-color: #fff;
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  margin-bottom: 40px;
+}
+
+.reservation-form-item {
+  width: calc(33.33333% - 16px);
+}
+
+.reservation-form-item>label {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.reservation-form-item>input {
+  width: 100%;
+  height: 50px;
+}
+
+.reservation-submit-button {
+  background-color: #ff7757;
+  font-size: 16px;
+  width: 100%;
+  height: 70px;
+  border: 1px solid #dfdfdf;
+  border-radius: 12px;
+}
+
+.own-container {
+  margin-top: 40px;
+  margin-bottom: 250px;
+}
+
+.own-container h2 {
+  margin-bottom: 40px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tr {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table td {
+  font-size: 14px;
+  padding: 16px 10px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+td a {
+  color: #0071c1;
+}
+
+/* -----reservation area ----- */
+.reservation-confirm-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 24px;
+}
+
+.reservation-confirm-label {
+  font-weight: 700;
+  padding-left: 30px;
+}
+
+.reservation-confirm-value {
+  font-weight: 700;
+  padding-right: 30px;
+}
+
+.reservation-confirm-description {
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+.reservation-cancel-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  height: 70px;
+  border: 1px solid #dfdfdf;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.reservation-details-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin-bottom: 24px;
+}
+
+.reservation-details-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reservation-details-room-name {
+  font-size: 24px;
+}
+
+.reservation-details-room-price {
+  color: #ff7757;
+  font-size: 25px;
+}
+
+.reservation-details-room-address {
+  color: #767e86;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 20px;
+}
+
+.reservation-details-room-introduction {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.reservation-form-item-edit {
+  margin-bottom: 25px;
+}
+
+.reservation-form-item-edit>input {
+  width: 100%;
+  height: 50px;
+}

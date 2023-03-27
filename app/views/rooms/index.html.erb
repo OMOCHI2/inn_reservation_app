@@ -1,0 +1,25 @@
+<%= render "shared/search" %>
+
+<div class="container room-container">
+  <p class="room-result"><%= @rooms.count %>件が見つかりました<p>
+  <ul class="room-list">
+    <% @rooms.each do |room| %>
+      <li class="room">
+        <% if room.avatar.present? %>
+          <%= image_tag room.avatar, class: "room-image", alt: "施設画像" %>
+        <% else %>
+          <%= image_tag "room_default.png",class: "room-image", alt: "施設画像" %>
+        <% end %>
+        <div class="room-body">
+          <p class="room-name"><%= room.name %></p>
+          <p class="room-address"><%= room.address %></p>
+          <p class="room-introduction"><%= room.introduction %></p>
+          <div class="room-footer">
+            <p class="room-price"><%= room.price.to_s(:currency) %>~</p>
+            <%= link_to "詳細はこちら", room_path(room), class: "button room-link-button" %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

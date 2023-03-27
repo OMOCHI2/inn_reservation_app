@@ -1,0 +1,38 @@
+<section class="container own-container">
+  <h2>登録済み一覧</h2>
+  <div class="table-wrapper">
+    <table class="table own-table">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th>施設名</th>
+          <th>紹介文</th>
+          <th>料金</th>
+          <th>作成日</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @rooms.each do |room| %>
+          <tr>
+            <td>
+              <% if room.avatar.present? %>
+                <%= image_tag room.avatar.variant(resize: '120x90'), alt: "施設画像" %>
+              <% else %>
+                <%= image_tag "room_default.png", size: "120x90", alt: "施設画像" %>
+              <% end %>
+            </td>
+            <td><%= link_to room.name, room_path(room) %></td>
+            <td><%= room.introduction %></td>
+            <td class="nowrap"><%= room.price.to_s(:currency) %>~</td>
+            <td><%= l room.created_at %></td>
+            <td class="nowrap"><%= link_to "編集", edit_room_path(room) %></td>
+            <td class="nowrap"><%= link_to "削除", room_path(room), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

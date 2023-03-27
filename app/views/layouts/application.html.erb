@@ -11,6 +11,63 @@
   </head>
 
   <body>
+    <header>
+      <div class="header-bar">
+        <div class="header-container">
+          <a href="/" class="header-title">Inn Reservation App</a>
+          <div class="header-right">
+            <% if current_user.present? %>
+              <div class="header-profile">
+                <% if current_user.avatar.present? %>
+                  <%= image_tag current_user.avatar.variant(resize: '40x40') %>
+                <% else %>
+                  <%= image_tag "default.png", size: "40x40" %>
+                <% end %>
+                <span><%= current_user.name %></span>
+                <ul class="dropdown-lists">
+                  <li class="dropdown-list list-border"><%= link_to "施設の新規登録", new_room_path %></li>
+                  <li class="dropdown-list"><%= link_to "予約済み一覧", reservations_path %></li>
+                  <li class="dropdown-list"><%= link_to "登録済み一覧", own_rooms_path %></li>
+                  <li class="dropdown-list list-border"><%= link_to "アカウント設定", user_path(current_user) %></li>
+                  <li class="dropdown-list"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </div>
+            <% else %>
+              <%= link_to "ログイン", new_user_session_path, class: "button header-list-item" %></li>
+              <%= link_to "新規登録", new_user_registration_path, class: "button new-button header-list-item" %></li>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% if flash[:notice] %>
+        <div class="notice-area">
+          <p class="notice"><%= notice %></p>
+        </div>
+      <% end %>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <div class="footer-bar">
+        <div class="footer-container">
+          <a href="/" class="footer-title">Inn Reservation App</a>
+          <p>Copyright © Inn Reservation App <%= Date.current.year %> All rights reserved</p>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".header-profile").click(function() {
+          if ($(this).hasClass("is-active")) {
+            $(".dropdown-lists").removeClass("show");
+            $(this).removeClass("is-active");
+          } else {
+            $(".dropdown-lists").addClass("show");
+            $(this).addClass("is-active");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

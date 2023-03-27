@@ -1,0 +1,9 @@
+<% if @room.errors.any? %>
+  <div id="error_explanation" data-turbo-cache="false">
+    <ul>
+      <% @room.errors.full_messages.each do |message| %>
+        <li class="error-list-item"><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

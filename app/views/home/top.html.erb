@@ -1,0 +1,37 @@
+<div class="first-view">
+  <section class="container">
+    <h2 class="first-view-title">
+      まだ体験したことのない<br>
+      旅をしよう。
+    </h2>
+    <div class="top-search">
+      <%= form_with url: rooms_path, method: :get do |f|%>
+        <%= f.text_field :area, placeholder: "エリア名を入力", class: "top-search-input" %>
+        <%= f.submit "検索", class: "button submit-button top-search-button" %>
+      <% end %>
+    </div>
+  </section>
+</div>
+<div class="container">
+  <section class="recommend-area-section">
+    <h2 class="recommend-area-section-title">おすすめのエリア</h2>
+    <div class="recommend-areas">
+      <%= link_to rooms_path(area: "東京"), class: "recommend-area tokyo-area" do %>
+        <span class="area-name-ja">東京</span>
+        <span class="area-name-en">Tokyo</span>
+      <% end %>
+      <%= link_to rooms_path(area: "大阪"), class: "recommend-area osaka-area" do %>
+        <span class="area-name-ja">大阪</span>
+        <span class="area-name-en">Osaka</span>
+      <% end %>
+      <%= link_to rooms_path(area: "京都"), class: "recommend-area kyoto-area" do %>
+        <span class="area-name-ja">京都</span>
+        <span class="area-name-en">Kyoto</span>
+      <% end %>
+      <%= link_to rooms_path(area: "札幌"), class: "recommend-area sapporo-area" do %>
+        <span class="area-name-ja">札幌</span>
+        <span class="area-name-en">Sapporo</span>
+      <% end %>
+    </div>
+  </section>
+</div>
