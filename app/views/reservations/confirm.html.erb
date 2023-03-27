@@ -32,6 +32,6 @@
       </div>
       <%= f.submit "予約を確定", class: "button submit-button reservation-submit-button" %>
     <% end %>
-    <%= link_to "キャンセル", :back, class: "button reservation-cancel-button" %>
+    <%= link_to "キャンセル", room_path(@reservation.room), class: "button reservation-cancel-button" %>
   </section>
 </div>

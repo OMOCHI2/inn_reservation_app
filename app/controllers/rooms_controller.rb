@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   before_action :set_user, only: [:new, :create, :show, :edit, :update, :destroy, :own]
 
   def index
-    @rooms = Room.where("address like ? and name like ?", "%#{params[:area]}%", "%#{params[:keyword]}%")
+    @rooms = Room.where("address like ? and (name like ? or introduction like ?)", "%#{params[:area]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
   end
 
   def new
